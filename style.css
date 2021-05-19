@@ -1,0 +1,29 @@
+header  {
+    background: #FF7200;
+    display: block;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    border: 5px;
+}
+
+#logo {
+    width: 150px;
+    height: 150px;
+    margin: 15px;   
+}
+
+body {
+    background: #dddd
+}
+
+#titulo{
+   color: #140083;
+   text-transform: uppercase;
+   font-family: helvetica;
+   font-weight: bold;
+   font-size: 30px;
+   margin-top: 50px;
+   text-align: center;
+}
+
