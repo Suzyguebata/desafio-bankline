@@ -30,6 +30,40 @@ body {
    text-align: center;
 }
 
+.dados-cadastrais {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-block-start: 30px;
+    margin-block-end: 30px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:"ItauDisplay-Regular","Myriad Pro", Arial;
+    font-weight: lighter;
+    font-size: 30px;
+}
+
+input {
+    border-color: #140083;
+    width: 500px;
+    height: 20px;
+}
+
+select {
+    border-color: #140083;
+    width: 500px;
+    height: 25px;
+}
+
+.button {
+    
+}
+
 footer {
     background: #706A66;
     position: absolute;
