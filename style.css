@@ -2,6 +2,8 @@ header  {
     background: #FF7200;
     display: block;
     text-align: center;
+    display: block;
+    text-align: center;
     margin: 5px;
     padding: 5px;
     border: 5px;
@@ -14,16 +16,54 @@ header  {
 }
 
 body {
-    background: #dddd
+    background: #dddd;
+    font-family:"ItauDisplay-Regular","Myriad Pro", Arial;
 }
 
-#titulo{
+#titulo {
    color: #140083;
    text-transform: uppercase;
-   font-family: helvetica;
+   font-family:"ItauDisplay-Regular","Myriad Pro", Arial;
    font-weight: bold;
    font-size: 30px;
    margin-top: 50px;
    text-align: center;
 }
 
+footer {
+    background: #706A66;
+    position: absolute;
+    width: 100%;
+    color: #ffffff;
+}
+
+.ita {
+    background: #343a40;
+    font-family:"ItauDisplay-Regular","Myriad Pro", Arial;
+    margin: 15px;
+    padding: 1px;
+    text-align: center
+}
+
+.ita h2 a {
+    text-decoration: none;
+    color: white;
+}
+
+.redes {
+    width: 100%;
+    text-align: center;
+}
+
+.redes ul li {
+    list-style-type: none;
+    display: inline;
+}
+
+.copy {
+    text-transform: capitalize;
+    text-align: center;
+    font-family:"ItauDisplay-Regular","Myriad Pro", Arial;
+    font-weight: bold;
+    font-size: 20px;
+}
