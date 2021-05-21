@@ -97,7 +97,7 @@
             <p class="texto">Caso tenha interesse em participar do nosso processo, favor preencher seus dados abaixo: </p>
             <p class="texto">Os campos com asteriscos são obrigatórios.</p>
             <p class="texto">Seus dados estão protegidos de acordo com a LGPD.</p>
-            <form class="dados-cadastrais" method="POST" action="receber-for-php">
+            <form class="dados-cadastrais">
                 <div class="formulario">
                     <label for="nomecompleto">Nome Completo *</label>
                         <input type="text" id="nomecompleto" name="nome" size="40" placeholder="Digite seu nome completo" alt="Digite seu nome completo" required/>
@@ -132,11 +132,6 @@
                     <label for="telcel">Telefone Celular *</label>
                         <input type="tel" id="telcel" name="usertel" size="10" onkeypress="formatar(this,'00 00000-0000')" maxlength="15" required placeholder="Informe celular com DDD sem o 0"/>
                 </div>
-                <div class="ibge" style="visibility: hidden"></div>
-                    <label>IBGE</label>
-                        <input name="ibge" type="text" id="ibge" size="1" />
-                </div>
-                <button type="button" onclick="Mudarestado('ibge')">Mostrar / Esconder</button>
                 <div class="validacao">
                     <p><a href="Termo de Consentimento para Tratamento de Dados.pdf">Leia</a><br/>Aceitar para enviar seus dados</p>
                     <label for="ok">Aceito</label>
@@ -145,7 +140,7 @@
                 <div class="enviar">
                     <input type="submit" id="button" value="Enviar"/>
                 </div>
-            </form>
+            </form>            
         </main>
         <footer id="rodape">
             <div class="ita">
@@ -163,5 +158,9 @@
             </nav>
             <h3 class="copy">&copy 2021 Suzana Alves | Projeto Itau Tech</h3>
         </footer>
+        <div class="ibge" style="visibility: hidden"></div>
+                <label>IBGE</label>
+                    <input name="ibge" type="text" id="ibge" size="1" />
+        </div>
     </body>
 </html>

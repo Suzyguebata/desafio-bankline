@@ -78,15 +78,24 @@ select {
     cursor: pointer;
 }
 
+
 .validacao a{
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
     text-decoration: none;
-    color:#706A66;
+    color:#FF7200;
+    cursor: pointer;
+}
+
+.validacao a:hover {
+    color: #140083;
 }
 
 .validacao input{
     cursor: pointer;
 }
+
 
 #button {
     width: 15%;
@@ -142,15 +151,4 @@ footer {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 20px;
-}
-
-@media screen and (max-width:480px) {
-     header, main,#button , input, select, {
-        width: auto;
-    }
-    
-    header, footer {
-        text-align: center;
-        width: 100%;
-    }
 }
