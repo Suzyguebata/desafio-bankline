@@ -9,7 +9,12 @@
 ### estilização rodapé
 (https://www.youtube.com/watch?v=S6wpejVS7Vs) 
 ### link pagina redes Itau 
+(https://www.itau.com.br/)
 ### criando branches
 (https://www.youtube.com/watch?v=oXMgyQt0ce0) 
 ### Estruturando e criando termo compártilhamento dados LGPD 
 (https://www.contabeis.com.br/noticias/44748/lgpd-modelo-de-termo-de-consentimento-para-tratamento-de-dados/)(https://www.lgpdbrasil.com.br/)
+### validação CEP 
+(https://viacep.com.br/exemplo/javascript/)
+### mascaá CPF, CEP e Telefone
+(https://www.guj.com.br/t/resolvido-mascara-de-cpf-e-data/300838)

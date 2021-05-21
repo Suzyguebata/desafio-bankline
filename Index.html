@@ -2,10 +2,90 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>Cadastro Pessoal Itaú Tech</title>
-        <link  rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
+        <script>
+            function Mudarestado(el) {
+         var display = document.getElementById(el).style.display;
+            if (display == "none")
+            document.getElementById(el).style.display = 'block';
+            else
+            document.getElementById(el).style.display = 'none';
+            }
+        </script>
+        <script>
+            function limpa_formulário_cep() {
+                    //Limpa valores do formulário de cep.
+                    document.getElementById('rua').value=("");
+                    document.getElementById('bairro').value=("");
+                    document.getElementById('cidade').value=("");
+                    document.getElementById('uf').value=("");
+                    document.getElementById('ibge').value=("");
+            }
+
+            function meu_callback(conteudo) {
+                if (!("erro" in conteudo)) {
+                    document.getElementById('rua').value=(conteudo.logradouro);
+                    document.getElementById('bairro').value=(conteudo.bairro);
+                    document.getElementById('cidade').value=(conteudo.localidade);
+                    document.getElementById('uf').value=(conteudo.uf);
+                    document.getElementById('ibge').value=(conteudo.ibge);
+                } 
+                else {
+                    limpa_formulário_cep();
+                    alert("CEP não encontrado.");
+                }
+            }
+                
+            function pesquisacep(valor) {
+                var cep = valor.replace(/\D/g, '');
+
+                if (cep != "") {
+
+                    var validacep = /^[0-9]{8}$/;
+
+                    if(validacep.test(cep)) {
+                        document.getElementById('rua').value="...";
+                        document.getElementById('bairro').value="...";
+                        document.getElementById('cidade').value="...";
+                        document.getElementById('uf').value="...";
+                        document.getElementById('ibge').value="...";
+
+                        var script = document.createElement('script');
+        
+                        script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                        document.body.appendChild(script);
+        
+                    } 
+                    else {
+                        limpa_formulário_cep();
+                        alert("Formato de CEP inválido.");
+                    }
+                }
+                else {
+                    limpa_formulário_cep();
+                }
+            };
+        
+            </script>
+            <script>
+
+                function formatar(src, mask)
+                {
+                  var i = src.value.length;
+                  var saida = mask.substring(0,1);
+                  var texto = mask.substring(i)
+                if (texto.substring(0,1) != saida)
+                  {
+                                src.value += texto.substring(0,1);
+                  }
+                }                
+            </script>
     </head>
+
     <body>
         <header>
             <img id="logo" src="img/Itau.png" alt="banner fundo laranja, Logo Itaú quadrado com bordas arredondadas,fundo azul e letras amarelas">
@@ -17,69 +97,46 @@
             <p class="texto">Caso tenha interesse em participar do nosso processo, favor preencher seus dados abaixo: </p>
             <p class="texto">Os campos com asteriscos são obrigatórios.</p>
             <p class="texto">Seus dados estão protegidos de acordo com a LGPD.</p>
-            <form class="dados-cadastrais">
+            <form class="dados-cadastrais" method="POST" action="receber-for-php">
                 <div class="formulario">
                     <label for="nomecompleto">Nome Completo *</label>
-                        <input type="text" id="nomecompleto" name="nome" placeholder="Digite seu nome completo" alt="Digite seu nome completo" required/>
+                        <input type="text" id="nomecompleto" name="nome" size="40" placeholder="Digite seu nome completo" alt="Digite seu nome completo" required/>
                     <label for="cpf">CPF *</label>
-                        <input type="text" id="cpf" maxlength="14" placeholder="Digite seu CPF somente números" required/>
+                        <input type="text" id="cpf" size="12" onkeypress="formatar(this,'000.000.000-00')" maxlength="14" placeholder="Digite seu CPF somente números" required/>
                     <label for="rg">RG</label>
-                        <input type="text" id="rg" name="RG" placeholder="Digite seu RG, somente números"/>
-                    <label for="sexo">Sexo</label>
+                        <input type="text" id="rg" name="RG" size="8" onkeypress="formatar(this,'00.000.000-0')" placeholder="Digite seu RG, somente números"/>
+                    <label for="sexo">Sexo</label> 
                         <select name="sexo">
                             <option value="vazio">Selecione</option>
                             <option value="masculino">Masculino</option>
-                            <option value="masculino">Feminino</option>
+                            <option value="feminino">Feminino</option>
                             <option value="semidentificacao">Prefiro Não Responder</option>
-                        </select>
-                    <label for="cep">CEP</label>
-                        <input type="text" id="cep" maxlength="10" placeholder="Digite seu CEP somente números"/>
-                    <label for="endereco">Endereço *</label>
-                        <input type="text" id="endereco" name="endereco" required/>
-                    <label for="numero">Número *</label>
-                        <input type="text" id="numero" placeholder="Digite seu número residencial" required/>
+                        </select>                   
+                    <label for="cep">Cep *</label>
+                        <input name="cep" type="text" id="cep" size="10" onkeypress="formatar(this,'00.000-000')" maxlength="10"
+                        onblur="pesquisacep(this.value);" placeholder="Digite seu CEP somente números" required/>
+                    <label for="rua">Endereço</label>
+                        <input name="rua" type="text" id="rua" size="40" readonly />
+                    <label for="numero">Número</label>
+                        <input name="numero" type="text" id="numero" size="5" placeholder="Digite númerosua residência" required />
                     <label for="complemento">Complemento</label>
-                        <input type="text" id="complemento" placeholder="Apartamento,bloco, etc..."/>
+                        <input name="complemento" type="text" id="complemento" size="20" placeholder="Apartamento, bloco, etc..." />
                     <label for="bairro">Bairro</label>
-                        <input type="text" id="bairro" name="bairro" required/>
-                    <label for="localidade">Cidade</label>
-                        <input type="text" id="localidade" name="cidade" required/>
+                        <input name="bairro" type="text" id="bairro" size="40" readonly />
+                    <label for="cidade">Cidade</label>
+                        <input name="cidade" type="text" id="cidade" size="40" readonly />
                     <label for="uf">Estado</label>
-                        <select id="uf">
-                            <option value="vazio">Selecione</option>
-                            <option value="AC">Acre</option>
-                            <option value="AL">Alagoas</option>
-                            <option value="AP">Amapá</option>
-                            <option value="AM">Amazonas</option>
-                            <option value="BA">Bahia</option>
-                            <option value="CE">Ceará</option>
-                            <option value="DF">Distrito Federal</option>
-                            <option value="ES">Espírito Santo</option>
-                            <option value="GO">Goiás</option>
-                            <option value="MA">Maranhão</option>
-                            <option value="MT">Mato Grosso</option>
-                            <option value="MS">Mato Grosso do Sul</option>
-                            <option value="MG">Minas Gerais</option>
-                            <option value="PA">Pará</option>
-                            <option value="PB">Paraíba</option>
-                            <option value="PR">Paraná</option>
-                            <option value="PE">Pernambuco</option>
-                            <option value="PI">Piauí</option>
-                            <option value="RJ">Rio de Janeiro</option>
-                            <option value="RN">Rio Grande do Norte</option>
-                            <option value="RS">Rio Grande do Sul</option>
-                            <option value="RO">Rondônia</option>
-                            <option value="RR">Roraima</option>
-                            <option value="SC">Santa Catarina</option>
-                            <option value="SP">São Paulo</option>
-                            <option value="SE">Sergipe</option>
-                            <option value="TO">Tocantins</option>
-                        </select>
+                        <input name="uf" type="text" id="uf" size="2" readonly  />
                     <label for="telfixo">Telefone Fixo</label>
-                        <input type="tel" id="telfixo" name="usertel" maxlength="14" placeholder="Informe telefone com DDD sem o 0"/>
+                        <input type="tel" id="telfixo" name="usertel" size="10" onkeypress="formatar(this,'00 0000-0000')" maxlength="14" placeholder="Informe telefone com DDD sem o 0"/>
                     <label for="telcel">Telefone Celular *</label>
-                            <input type="tel" id="telcel" name="usertel" maxlength="15" required placeholder="Informe celular com DDD sem o 0"/>
+                        <input type="tel" id="telcel" name="usertel" size="10" onkeypress="formatar(this,'00 00000-0000')" maxlength="15" required placeholder="Informe celular com DDD sem o 0"/>
                 </div>
+                <div class="ibge" style="visibility: hidden"></div>
+                    <label>IBGE</label>
+                        <input name="ibge" type="text" id="ibge" size="1" />
+                </div>
+                <button type="button" onclick="Mudarestado('ibge')">Mostrar / Esconder</button>
                 <div class="validacao">
                     <p><a href="Termo de Consentimento para Tratamento de Dados.pdf">Leia</a><br/>Aceitar para enviar seus dados</p>
                     <label for="ok">Aceito</label>
