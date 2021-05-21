@@ -16,5 +16,5 @@
 (https://www.contabeis.com.br/noticias/44748/lgpd-modelo-de-termo-de-consentimento-para-tratamento-de-dados/)(https://www.lgpdbrasil.com.br/)
 ### validação CEP 
 (https://viacep.com.br/exemplo/javascript/)
-### mascaá CPF, CEP e Telefone
+### mascara CPF, CEP e Telefone
 (https://www.guj.com.br/t/resolvido-mascara-de-cpf-e-data/300838)
