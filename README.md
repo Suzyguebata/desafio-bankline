@@ -1,6 +1,6 @@
 # desafio-bankline
 ## Criar um formulario para registrar dados pessoais
-(https://github.com/educacao-gama/desafios-gama/tree/main/bankline/atracao)
+(https://github.com/educacao-gama/desafios-gama/tree/main/cadastro%20simples)
 ## Cadastro Pessoal com os campos: Nome, Cpf, Rg, Sexo, Endereco, Numero, Bairro, Cidade, Estado, Cep, Telefone Fixo, Telefone Celular.
 ## Os campos Nome, Cpf, Endereco, Numero, Telefone Celular são obrigatórios
 # Links:
